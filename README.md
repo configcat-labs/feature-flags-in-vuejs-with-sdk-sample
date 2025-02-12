@@ -38,4 +38,4 @@ Keep up with ConfigCat on [X](https://x.com/configcat), [Facebook](https://www.f
 
 ## Contributions
 
-Contributions are welcome!
+Contributions are always welcome!
