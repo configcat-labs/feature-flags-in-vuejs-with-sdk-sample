@@ -6,7 +6,7 @@
 
       <div>
         <p class="text">Calculate your age by providing your year of birth.</p>
-        <input type='number' v-model='appData.birthYear' />
+        <input type='number' v-model='appData.birthYear'/>
         <button class='button button-calculate' @click='calculateUserAge()' :disabled="!isYearValid">
           Calculate
         </button>
@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
-import { FeatureWrapper } from 'configcat-vue';
+import {computed, reactive} from 'vue';
+import {FeatureWrapper} from 'configcat-vue';
 
 const appData = reactive({
   birthYear: '',
