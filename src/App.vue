@@ -2,7 +2,7 @@
   <main id="main">
     <h1>Age Calculator</h1>
 
-    <FeatureWrapper feature-key="calculateuseragefeature">
+    <FeatureWrapper feature-key="calculateUserAge">
 
       <div>
         <p class="text">Calculate your age by providing your year of birth.</p>
