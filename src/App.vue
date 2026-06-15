@@ -3,11 +3,10 @@
     <h1>Age Calculator</h1>
 
     <FeatureWrapper feature-key="calculateUserAge">
-
       <div>
-        <p class="text">Calculate your age by providing your year of birth.</p>
-        <input type='number' v-model='appData.birthYear'/>
-        <button class='button button-calculate' @click='calculateUserAge()' :disabled="!isYearValid">
+        <p class="text">Calculate your age by providing your birth year.</p>
+        <input type="number" v-model="appData.birthYear" />
+        <button class="button button-calculate" @click="calculateUserAge()" :disabled="!isYearValid">
           Calculate
         </button>
 
@@ -17,39 +16,41 @@
       </div>
 
       <template #else>
-        Sorry, This feature has been disabled by the Admin.
+        Sorry, This feature is disabled by the Admin.
       </template>
 
       <template #loading>
         <p>Loading...</p>
       </template>
-
     </FeatureWrapper>
-
   </main>
 </template>
 
 <script setup lang="ts">
-import {computed, reactive} from 'vue';
-import {FeatureWrapper} from 'configcat-vue';
+import { computed, reactive } from 'vue';
+import { FeatureWrapper } from 'configcat-vue';
 
 const appData = reactive({
-  birthYear: '',
-  age: '',
+  birthYear: 0,
+  age: 0,
 });
 
-const yearRegex = /^(?:19|20)\d{2}$/;
-
-const calculateUserAge = () => {
-  const userAge = new Date().getFullYear() - Number(appData.birthYear);
-  appData.age = userAge.toString();
-  appData.birthYear = '';
-}
+const currentYear = new Date().getFullYear();
 
 const isYearValid = computed((): boolean => {
-  return yearRegex.test(appData.birthYear);
-})
+  return (
+    appData.birthYear >= 1900 &&
+    appData.birthYear < currentYear
+  );
+});
 
+const calculateUserAge = () => {
+  if (isYearValid.value) {
+    const userAge = currentYear - appData.birthYear;
+    appData.age = userAge
+    appData.birthYear = 0;
+  }
+}
 </script>
 
 <style scoped>
