@@ -16,7 +16,7 @@
       </div>
 
       <template #else>
-        Sorry, This feature is disabled by the Admin.
+        Sorry, this feature is disabled by the Admin.
       </template>
 
       <template #loading>
